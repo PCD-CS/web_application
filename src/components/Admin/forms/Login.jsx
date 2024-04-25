@@ -101,7 +101,7 @@ const Login = () => {
       )}
 
       <div className={` ${loading && 'blur-[1px]'} flex flex-col justify-center items-center `}>
-        <img src={login_image} alt="login_image" className="w-28 md:w-36 lg:w-36 rotate-animation" />
+        {/* <img src={login_image} alt="login_image" className="w-28 md:w-36 lg:w-36 rotate-animation" /> */}
         <h1 className="poppins font-semibold text-2xl md:text-3xl lg:text-3xl">Login</h1>
 
         <form className="flex flex-col items-center md:mt-4 lg:mt-4" onSubmit={handleSubmit}>
