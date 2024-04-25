@@ -35,7 +35,7 @@ const Homepage = () => {
                 return <Help />;
             default:
                 return <div className='flex justify-center items-center'>
-                    <img src={mapralLogo} alt="" className='h-96 opacity-25' style={{ mixBlendMode: 'multiply' }} />
+                    {/* <img src={mapralLogo} alt="" className='h-96 opacity-25' style={{ mixBlendMode: 'multiply' }} /> */}
                 </div>
 
         }
