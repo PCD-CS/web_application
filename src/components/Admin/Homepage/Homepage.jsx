@@ -25,14 +25,14 @@ const Homepage = () => {
                 return <CompanyList />;
             case 'EmployeeDetails':
                 return <EmployeeDetails />;
-            case 'NewSignup':
-                return <NewSignup />;
+            // case 'NewSignup':
+                // return <NewSignup />;
             case 'PasswordRequests':
                 return <ChangePasswordRequests />;
-            case 'Communication':
-                return <Communication />;
-            case 'Help':
-                return <Help />;
+            // case 'Communication':
+            //     return <Communication />;
+            // case 'Help':
+            //     return <Help />;
             default:
                 return <div className='flex justify-center items-center'>
                     {/* <img src={mapralLogo} alt="" className='h-96 opacity-25' style={{ mixBlendMode: 'multiply' }} /> */}

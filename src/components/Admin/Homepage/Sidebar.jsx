@@ -55,18 +55,18 @@ const Sidebar = ({ setSelectedPage }) => {
     {
       text: 'Employee Details',
     },
-    {
-      text: 'New Signup',
-    },
-    {
-      text: 'Password Requests',
-    },
-    {
-      text: 'Communication',
-    },
-    {
-      text: 'Help',
-    },
+    // {
+    //   text: 'New Signup',
+    // },
+    // {
+    //   text: 'Password Requests',
+    // },
+    // {
+    //   text: 'Communication',
+    // },
+    // {
+    //   text: 'Help',
+    // },
   ];
 
   return (
