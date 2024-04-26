@@ -10,6 +10,7 @@ import OtherDocuments from './ViewFields/OtherDocuments';
 import UpdateProfilePhoto from './ViewFields/UpdateProfilePhoto';
 import UserLayoff from './ViewFields/UserLayoff';
 import UpdateFileUpload from './ViewFields/UpdateFileUpload';
+import PresentAbsentButton from './ViewFields/PresentAbsentButton';
 
 const Profile = ({ user, companyDetails, onBack, formatDate }) => {
     // console.log(user)
@@ -271,6 +272,9 @@ const Profile = ({ user, companyDetails, onBack, formatDate }) => {
                     profileFileUrl={profileFileUrl}
                     setProfileFileUrl={setProfileFileUrl}
                 />
+
+                {/* Presenty Toggle */}
+                <PresentAbsentButton />
 
                 <div>
                     {/* save / edit button */}
