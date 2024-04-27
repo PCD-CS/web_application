@@ -191,6 +191,14 @@ export const getDetailUserAttendance = (id) => {
     return axiosClient().get(`attendance/get/${id}`).then(response => response.data)
 }
 
+export const getTodayEmployeeAttendance = (data) => {
+    return axiosClient().post(`/attendance/today`, JSON.stringify(data)).then(response => response.data)
+}
+
+export const markEmployeeEmployerAttendance = (data) => {
+    return axiosClient().post(`/attendance`, JSON.stringify(data)).then(response => response.data)
+}
+
 /* Tasks */
 export const getUserTaskByID = (id) => {
     return axiosClient().get(`task/getTask/${id}`).then(response => response.data)

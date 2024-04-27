@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { CrossIcon, DownloadIcon } from '../../../UI/Icons';
 import ProfileForm from './ProfileForm';
-import { getCompanyById, updateEmployee } from '../../../../network/agent';
+import { getCompanyById, getTodayEmployeeAttendance, updateEmployee } from '../../../../network/agent';
 import BankDetails from './ViewFields/BankDetails';
 import FamilyDetails from './ViewFields/FamilyDetails';
 import ExperienceDetails from './ViewFields/ExperienceDetails';
@@ -35,6 +35,7 @@ const Profile = ({ user, companyDetails, onBack, formatDate }) => {
 
     const [message, setMessage] = useState('')
     const [isEditMode, setIsEditMode] = useState(false);
+    const [attendance, setAttendance] = useState(null)
 
     const renderGender = (gender) => {
         switch (gender) {
@@ -246,6 +247,31 @@ const Profile = ({ user, companyDetails, onBack, formatDate }) => {
         });
     };
 
+    // Get the current date and time
+    const currentDate = new Date();
+
+    // Adjust the time zone offset to GMT+5.5
+    const gmtOffset = 5.5 * 60; // Offset in minutes
+    const gmtDate = new Date(currentDate.getTime() + gmtOffset * 60 * 1000); // Add the offset in milliseconds
+
+    // Construct the formatted date string
+    const formattedDate = gmtDate.toISOString()
+
+    const attendanceData = {
+        user: userID,
+        date: formattedDate
+        // date: "2024-05-10T09:30:15.159Z"
+    }
+
+    useEffect(() => {
+        getTodayEmployeeAttendance(attendanceData).then((response) => {
+            if (response.error === false) {
+                // console.log(response.data.status);
+                setAttendance(response.data.status);
+            }
+        });
+    }, []);
+
     return (
         <div>
 
@@ -274,7 +300,7 @@ const Profile = ({ user, companyDetails, onBack, formatDate }) => {
                 />
 
                 {/* Presenty Toggle */}
-                <PresentAbsentButton />
+                <PresentAbsentButton attendance={attendance} attendanceData={attendanceData} />
 
                 <div>
                     {/* save / edit button */}
