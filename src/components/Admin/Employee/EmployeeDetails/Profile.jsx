@@ -578,7 +578,7 @@ const Profile = ({ user, companyDetails, onBack, formatDate }) => {
                     {/* contactEmail */}
                     <ProfileForm
                         label="Email ID"
-                        newClass="lowercase"
+                        // newClass="lowercase"
                         fieldName={editedEmail}
                         isEditMode={isEditMode}
                         handleFieldChange={(e) => handleFieldChange("email", e.target.value)}
