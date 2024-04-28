@@ -41,24 +41,27 @@ const PresentAbsentButton = ({ attendance, attendanceData }) => {
     return (
         <div>
             {attendance === null ? (
-                <div>
+                <div className='flex items-center'>
 
                     {isSubmitting === true ? <>
                         <div className={`${isStatus === 'Present' ? 'text-green-500 border-green-700' : 'text-red-500 border-red-700'} w-fit py-1 px-2 rounded-lg text-sm font-medium plusJakartaSans border bg-white`}>{isStatus}</div>
                     </> :
-                        <select name="Mark Attendance" onChange={handleSelectChange} className='p-1 mb-2 border border-gray-500 focus:border-blue-500 outline-none rounded-lg'>
-                            <option value="Select Attendance" disabled>Select Attendance</option>
-                            <option value="Absent">Absent</option>
-                            <option value="Present">Present</option>
-                        </select>
+                        <div>
+                            <p htmlFor="markAttendance" className='text-xs mb-1'>Mark Attendance:</p>
+                            <select name="Mark Attendance" id="markAttendance" onChange={handleSelectChange} className='p-1 mb-2 border border-gray-500 focus:border-blue-500 outline-none rounded-lg'>
+                                <option value="Select Attendance" disabled>Select Attendance</option>
+                                <option value="Absent">Absent</option>
+                                <option value="Present">Present</option>
+                            </select>
+                        </div>
                     }
 
                     {isStatus === "Present" ? (
-                        <div className='w-26 mx-2'>
+                        <div className='bg-white p-2 rounded-lg w-26 mx-2'>
                             {
                                 isSubmitting === false && <>
-                                    <label htmlFor="workingHours" className='text-xs mr-2'>Working Hours:</label>
-                                    <input id="workingHours" type="number" value={hoursWorked} onChange={handleHoursChange} placeholder="E.g 9" className='w-20 border border-gray-500 focus:border-blue-500 outline-none rounded-lg px-2 py-1' />
+                                    <p htmlFor="workingHours" className='text-xs mr-2 mb-1'>Enter Working Hours:</p>
+                                    <input id="workingHours" type="number" value={hoursWorked} onChange={handleHoursChange} placeholder="E.g 9" className='w-20 placeholder:text-sm border border-gray-500 focus:border-blue-500 outline-none rounded-lg px-2 py-[0.15rem]' />
                                     <button className='mx-2 bg-green-500 text-white text-sm font-medium px-2 py-1 rounded-lg disabled:cursor-not-allowed' onClick={handleSubmit} disabled={isSubmitting || (isStatus === "Present" && hoursWorked === " ")}>Submit</button>
                                 </>
                             }
